@@ -1,0 +1,71 @@
+{% extends 'emp_base.html' %}
+
+{% block main %}
+
+
+
+<div class="card shadow m-2">
+    <div class = "card-body">
+        <h5>Employee Profile</h5>
+        <br>
+        <form method="post" name = "signup" onsubmit= "return checkpassword()">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="firstname">First Name:</label>
+                <input type="text" class="form-control" placeholder="Enter your first name" name="firstname" pattern="[A-Za-z]+" value="{{employee.user.first_name}}">
+              </div>
+            <div class="form-group">
+                <label for="lastname">Last Name:</label>
+                <input type="text" class="form-control" placeholder="Enter your last name" name="lastname" pattern="[A-Za-z]+" value="{{employee.user.last_name}}">
+              </div>
+              <div class="form-group">
+                <label for="empid">Employee ID:</label>
+                <input type="text" class="form-control" placeholder="Enter your employee id" name="empid" pattern="[0-9]+" value="{{employee.empid}}">
+              </div>
+              <div class="form-group">
+                <label for="department">Employee Department:</label>
+                <input type="text" class="form-control" placeholder="Enter your department" name="department" pattern="[A-Za-z]+" value="{{employee.empdept}}">
+              </div>
+              <div class="form-group">
+                <label for="designation">Employee Designation:</label>
+                <input type="text" class="form-control" placeholder="Enter your designation" name="designation" pattern="[A-Za-z]+" value="{{employee.designation}}">
+              </div>
+              <div class="form-group">
+                <label for="contact">Contact No:</label>
+                <input type="text" class="form-control" placeholder="Enter your contact no." name="contact" pattern="[0-9]+" value="{{employee.contact}}">
+              </div>
+            <div class="form-group">
+              <label for="email">Email address:</label>
+              <input type="email" class="form-control" placeholder="Enter your email" name="email" value="{{employee.user.username}}">
+            </div>
+            <div class="form-group">
+              <label for="jdate">Joining Date [{{employee.joiningdate}}]</label>
+              <input type="date" class="form-control" name="jdate" value="{{employee.empid}}">
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender [{{employee.gender}}]</label>
+                <select name="gender" class ="form-control">
+                    <option value ="None">Select Gender</option>
+                    <option value ="None">Male</option>
+                    <option value ="None">Female</option>
+
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+</div>
+
+{% if err == "no" %}
+<script>
+    alert('Profile Updation successfull!');
+    window.location = ('{% url 'profile' %}');
+</script>
+{% endif %}
+{% if err == "yes" %}
+<script>
+    alert('Something went wrong, try again!');
+</script>
+{% endif %}
+
+{% endblock %}

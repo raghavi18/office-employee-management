@@ -1,0 +1,42 @@
+{% include 'header.html' %} 
+{% load static %}
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+      <li data-target="#demo" data-slide-to="3"></li>
+    </ul>
+    
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'images/sahyogfront.png' %}" alt="1" width="1300" height="400">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/1.jpg' %}" alt="2" width="1300" height="400">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/2.jpg' %}" alt="3" width="1300" height="400">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/3.jpg' %}" alt="4" width="1300" height="400">
+      </div>
+    </div>
+    
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
+
+  <div class="container-fluid bg-dark" style="height:150px">
+    <h4 class="text-center text-light pt-3"><b>Write to us at</b></h4>
+    <center><h7 class="text-center text-light">sahyog[at]gmail[dot]com</h7></center>
+  </div>
